@@ -1,5 +1,7 @@
 package task1.task14;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         int[] q = {1,2,45};
@@ -9,7 +11,17 @@ public class Main {
         //rotateMatrix(3,t);
         displayMatrix(3,t);
     }
-    static void rotateMatrix(int n){
+    static void rotateMatrix(int[][] n){
+        int  matrixSize = n.length;
+        int [] firstTempRowOfMatrix;
+        int [] secondTempRowOfMatrix;
+        for (int index=0; index<=matrixSize-1;index++){
+            firstTempRowOfMatrix = n[index].clone();
+            //if(index+1!=matrixSize-1)secondTempRowOfMatrix = n[index+1].clone();
+            //https://javabypatel.blogspot.com/2016/11/rotate-matrix-by-90-degree-java.html
+
+
+        }
 
 
     }
