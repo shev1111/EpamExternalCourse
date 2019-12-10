@@ -1,7 +1,6 @@
 package task2.task22.model.utils;
 
 import task2.task22.model.Book;
-
 import java.util.Random;
 
 public class BooksGenerator {

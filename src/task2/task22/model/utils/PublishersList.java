@@ -1,7 +1,7 @@
 package task2.task22.model.utils;
 
-public class PublishersList {
-    public  static final String[] PUBLISHERS ={
+class PublishersList {
+     static final String[] PUBLISHERS ={
             "Абрис",
             "Етнос",
             "Земля",
@@ -15,5 +15,5 @@ public class PublishersList {
             "Фактор"
     };
 
-    static final int LENGTH = 10;
+    static final int LENGTH = PUBLISHERS.length;
 }
