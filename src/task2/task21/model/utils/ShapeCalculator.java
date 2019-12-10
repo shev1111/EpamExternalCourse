@@ -1,6 +1,6 @@
-package task2.model.utils;
+package task2.task21.model.utils;
 
-import task2.model.Shape;
+import task2.task21.model.Shape;
 
 public class ShapeCalculator {
 

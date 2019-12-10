@@ -1,6 +1,6 @@
-package task2.view;
+package task2.task21.view;
 
-import task2.model.Shape;
+import task2.task21.model.Shape;
 
 public class Printer {
 

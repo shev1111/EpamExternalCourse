@@ -1,9 +1,9 @@
-package task2.model.utils;
+package task2.task21.model.utils;
 
-import task2.model.Circle;
-import task2.model.Rectangle;
-import task2.model.Shape;
-import task2.model.Triangle;
+import task2.task21.model.Circle;
+import task2.task21.model.Rectangle;
+import task2.task21.model.Shape;
+import task2.task21.model.Triangle;
 
 import java.util.Random;
 

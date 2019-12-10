@@ -1,8 +1,8 @@
-package task2.controller;
+package task2.task21.controller;
 
-import task2.model.*;
-import task2.model.utils.ShapeCalculator;
-import task2.view.Printer;
+import task2.task21.model.*;
+import task2.task21.model.utils.ShapeCalculator;
+import task2.task21.view.Printer;
 
 import java.util.Arrays;
 

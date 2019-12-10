@@ -1,6 +1,5 @@
-package task2.model;
+package task2.task21.model;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class ShapesColorComparator implements Comparator<Shape> {

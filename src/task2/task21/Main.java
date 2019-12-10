@@ -1,8 +1,8 @@
-package task2;
+package task2.task21;
 
-import task2.controller.ShapeController;
-import task2.model.Shape;
-import task2.model.utils.ShapeRandomise;
+import task2.task21.controller.ShapeController;
+import task2.task21.model.Shape;
+import task2.task21.model.utils.ShapeRandomise;
 
 public class Main {
     public static void main(String[] args) {

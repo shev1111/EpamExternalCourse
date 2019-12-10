@@ -1,4 +1,4 @@
-package task2.model;
+package task2.task21.model;
 
 public class Rectangle extends Shape {
     private double width;
