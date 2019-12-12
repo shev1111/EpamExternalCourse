@@ -19,11 +19,6 @@ public class Circle extends Shape {
     }
 
     @Override
-    public void draw() {
-        System.out.printf("%s; area=%.2f\n", this, calcArea());
-    }
-
-    @Override
     public String toString() {
         return super.toString() + ", radius=" + radius;
     }

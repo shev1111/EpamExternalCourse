@@ -38,7 +38,7 @@ public class ShapeRandomise {
         double a=0;
         double b=0;
         double c=0;
-        while (!Triangle.isTriangleValid(a,b,c)){
+        while (!ShapeValidator.isTriangleValid(a,b,c)){
             a = getRandomValue();
             b = getRandomValue();
             c = getRandomValue();

@@ -1,44 +1,52 @@
 package task2.task21.controller;
 
 import task2.task21.model.*;
-import task2.task21.model.utils.ShapeCalculator;
+import task2.task21.view.InputData;
 import task2.task21.view.Printer;
-
-import java.util.Arrays;
+import java.util.Comparator;
 
 public class ShapeController {
 
-      public static void getShapesData(Shape[] shapes){
-          Printer.printShapes(shapes);
-      }
+    private ShapeModel model = new ShapeModel();
+    private Printer printer = new Printer();
 
-      public static void getAreaSumOfShapes(Shape[] shapes){
-          Printer.printArea(ShapeCalculator.getShapeSum(shapes));
-      }
+    public void run(){
+        getTotalShapesArea();
 
+        getTotalShapesAreaByType();
 
-      public static void getRectangleSum(Shape[] shapes){
-          Printer.printRectanglesArea(ShapeCalculator.getShapeSum(shapes, Rectangle.class.getSimpleName()));
-      }
+        sortShapesByCriteria();
+    }
 
+    private void sortShapesByCriteria() {
+        printer.print("Enter criteria sorting (area, color) -> ");
+        Comparator comparator = null;
+        String criteria = InputData.input().toLowerCase();
+        switch (criteria){
+            case "area":
+                comparator = new ShapesAreaComparator();break;
+            case "color":
+                comparator = new ShapesColorComparator();break;
+            default: printer.print("Invalid criteria!!!");
+        }
 
-      public static void getTriangleSum(Shape[] shapes){
-        Printer.printTrianglesArea(ShapeCalculator.getShapeSum(shapes, Triangle.class.getSimpleName()));
-      }
+        if(comparator!=null){
+            printer.print(ConverterInString.convertArrayShapes(model.sortShapes(comparator)));
+        }
+    }
 
+    private void getTotalShapesAreaByType() {
+        printer.print("Enter type shape (Circle, Rectangle, Triangle) -> ");
+        String type = InputData.input();
+        printer.print(ConverterInString.convertDouble(model.getTotalAreaShapes(type), type+" area"));
+        printer.print("---------------------------------------------------------");
+    }
 
-      public static void getCircleSum(Shape[] shapes){
-        Printer.printCirclesArea(ShapeCalculator.getShapeSum(shapes, Circle.class.getSimpleName()));
-      }
-
-      public static void sortShapesByColor(Shape[] shapes){
-          Arrays.sort(shapes, new ShapesColorComparator());
-      }
-
-
-      public static void sortShapesByArea(Shape[] shapes){
-        Arrays.sort(shapes, new ShapesAreaComparator());
-      }
-      
+    private void getTotalShapesArea() {
+        printer.print(ConverterInString.convertArrayShapes(model.getShapes()));
+        printer.print("---------------------------------------------------------");
+        printer.print(ConverterInString.convertDouble(model.getTotalAreaShapes(), "All shapes area sum"));
+        printer.print("---------------------------------------------------------");
+    }
 
 }

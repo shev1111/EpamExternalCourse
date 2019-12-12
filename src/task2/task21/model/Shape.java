@@ -21,7 +21,10 @@ public abstract class Shape implements Drawable {
                 " colorShape=" + colorShape;
     }
 
-
+    @Override
+    public String draw() {
+        return String.format("%s; area=%.2f\n", this, calcArea());
+    }
 
     public abstract double calcArea();
 

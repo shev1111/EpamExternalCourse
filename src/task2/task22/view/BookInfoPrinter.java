@@ -1,16 +1,12 @@
 package task2.task22.view;
 
-import task2.task22.model.Book;
-
 public class BookInfoPrinter {
 
-    public static void printBooks(Book[] books){
-        for (Book book:books) {
-            System.out.println(book);
-        }
+    public void print(String message){
+        System.out.println(message);
     }
 
-    public static void printAuthorsBooks(Book[] books, String author){
+    /*public static void printAuthorsBooks(Book[] books, String author){
         int findResult = 0;
         for (Book book : books) {
             if (book.getAuthor().equals(author)) {
@@ -47,7 +43,7 @@ public class BookInfoPrinter {
 
     public static void printMessage(String mesage){
         System.out.println(mesage);
-    }
+    }*/
 
 
 

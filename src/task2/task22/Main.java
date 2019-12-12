@@ -15,13 +15,15 @@ public class Main {
             "-exit '-exit' to leave program\n";
 
     public static void main(String[] args) {
-        Book[] books = BooksGenerator.getBooksArray(10);
+        BookController controller = new BookController();
+        controller.run();
+        /*Book[] books = BooksGenerator.getBooksArray(10);
         Scanner scanner = new Scanner(System.in);
-        BookController.returnMessage("Specify a command key:");
-        workWithConsole(books, scanner);
+        //BookController.returnMessage("Specify a command key:");
+        workWithConsole(books, scanner);*/
     }
 
-    private static void workWithConsole(Book[] books, Scanner scanner) {
+    /*private static void workWithConsole(Book[] books, Scanner scanner) {
         while (true) {
             String key;
             String parameter;
@@ -85,5 +87,5 @@ public class Main {
             BookController.returnMessage("For key '-before_year' you should specify number parameter");
         }
         return year;
-    }
+    }*/
 }

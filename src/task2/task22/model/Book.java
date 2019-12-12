@@ -82,6 +82,6 @@ public class Book {
                 ", year=" + year +
                 ", pagesNumber=" + pagesNumber +
                 ", price=" + price +
-                '}';
+                '}'+"\n";
     }
 }
