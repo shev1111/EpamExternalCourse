@@ -4,7 +4,6 @@ import task2.task22.model.comparators.AuthorsComparator;
 import task2.task22.model.comparators.PublishersComparator;
 import task2.task22.model.comparators.YearsComparator;
 import task2.task22.model.utils.BooksGenerator;
-
 import java.time.Year;
 import java.util.Arrays;
 import java.util.Comparator;

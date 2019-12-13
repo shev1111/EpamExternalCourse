@@ -14,8 +14,4 @@ class ConverterInString {
         return result;
 
     }
-
-    static String convertDouble(double value, String message){
-        return String.format("%s = %.2f",message, value);
-    }
 }
