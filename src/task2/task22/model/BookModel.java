@@ -5,6 +5,7 @@ import task2.task22.model.comparators.PublishersComparator;
 import task2.task22.model.comparators.YearsComparator;
 import task2.task22.model.utils.BooksGenerator;
 
+import java.time.Year;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -36,6 +37,12 @@ public class BookModel {
         return getBooks(innerCopyLibrary,  searchIndexes[0],  searchIndexes[1]);
     }
 
+    public Book[] sortBooksByPublisher(){
+        Book[] innerCopyLibrary = Arrays.copyOf(books,books.length);
+        Arrays.sort(innerCopyLibrary, new PublishersComparator());
+        return innerCopyLibrary;
+    }
+
     private int[] getIndexes(String criteria, Comparator comparator, Book[] innerCopyLibrary) {
         Arrays.sort(innerCopyLibrary, comparator);
         String comparatorType = comparator.getClass().getSimpleName();
@@ -52,13 +59,16 @@ public class BookModel {
         int firstIndex = -1;
         int lastIndex = -1;
         for(Book elem: innerCopyLibrary){
+
             if(elem.getAuthor().equalsIgnoreCase(criteria)){
+
                 if(firstIndex==-1){
                     firstIndex=bookIndex;
 
+
                 }
             }else {
-                if(lastIndex==-1){
+                if(firstIndex!=-1&lastIndex==-1){
                     lastIndex=bookIndex;
                 }
             }
@@ -78,7 +88,7 @@ public class BookModel {
 
                 }
             }else {
-                if(lastIndex==-1){
+                if(firstIndex!=-1&lastIndex==-1){
                     lastIndex=bookIndex;
                 }
             }
@@ -92,6 +102,7 @@ public class BookModel {
         int bookIndex =0;
         int firstIndex = -1;
         int lastIndex = -1;
+        if(year<0&&year > Year.now().getValue())return new int[]{firstIndex,lastIndex};
         for(Book elem: innerCopyLibrary){
             if(elem.getYear()<year){
                 if(firstIndex==-1){
@@ -99,12 +110,13 @@ public class BookModel {
 
                 }
             }else {
-                if(lastIndex==-1){
+                if(firstIndex!=-1&lastIndex==-1){
                     lastIndex=bookIndex;
                 }
             }
             bookIndex++;
         }
+
         return new int[]{firstIndex,lastIndex};
     }
 
@@ -112,7 +124,7 @@ public class BookModel {
         if(lastIndex>=0&&firstIndex>=0&&firstIndex!=lastIndex){
             return Arrays.copyOfRange(innerCopyLibrary, firstIndex, lastIndex);
         }
-        if(firstIndex==lastIndex){
+        if(firstIndex==lastIndex&&firstIndex!=-1){
             return new Book[]{innerCopyLibrary[firstIndex]};
         } else {
             return new Book[0];
