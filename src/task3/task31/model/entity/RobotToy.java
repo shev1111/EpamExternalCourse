@@ -7,6 +7,11 @@ public class RobotToy extends AbstractToy {
         this.bodyMaterial = bodyMaterial;
     }
 
+    public RobotToy(int price, int age, String gender, String bodyMaterial) {
+        super(price, age, gender);
+        this.bodyMaterial = bodyMaterial;
+    }
+
     public RobotToy() {
         this("undefined");
     }

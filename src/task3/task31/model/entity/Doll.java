@@ -7,6 +7,11 @@ public class Doll extends AbstractToy {
         this.dollType = dollType;
     }
 
+    public Doll(int price, int age, String gender, String dollType) {
+        super(price, age, gender);
+        this.dollType = dollType;
+    }
+
     public Doll() {
         this("undefined");
     }

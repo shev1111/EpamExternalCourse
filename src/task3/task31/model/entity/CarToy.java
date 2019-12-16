@@ -9,6 +9,11 @@ public class CarToy extends AbstractToy {
         this.carType = carType;
     }
 
+    public CarToy(int price, int age, String gender, String carBrand) {
+        super(price, age, gender);
+        this.carBrand = carBrand;
+    }
+
     public CarToy(String carBrand) {
         this(carBrand,"undefined");
     }

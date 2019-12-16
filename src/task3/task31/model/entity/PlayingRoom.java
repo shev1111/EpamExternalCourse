@@ -3,27 +3,25 @@ package task3.task31.model.entity;
 import java.util.Arrays;
 import java.util.Comparator;
 
-
-public class PlayingRoom <E> {
+public class PlayingRoom <E extends AbstractToy> {
     private static final  int DEFAULT_CAPACITY = 10;
-    private Object[] box;
+    private E[] box;
     private int size=0;
     private int capacity;
     private int selectionSize = 0;
 
     public PlayingRoom(int capacity) {
         this.capacity = capacity;
-        box =  new Object[capacity];
+        box = (E[]) new AbstractToy[capacity];
     }
 
     public PlayingRoom() {
         this(DEFAULT_CAPACITY);
     }
 
-
     public boolean addToy(E toy){
         if(capacity==size){
-            inciseCapacity();
+            increaseCapacity();
         }
         box[size++] = toy;
         return true;
@@ -41,72 +39,41 @@ public class PlayingRoom <E> {
 
     public int getGeneralToysPrice(){
         int sum =0;
-        for (Object elem : box) {
-            if(elem instanceof AbstractToy){
-                sum = sum+((AbstractToy) elem).getPrice();
-            }
-
+        for (E elem : box) {
+            sum = sum+elem.getPrice();
         }
         return sum;
     }
 
     public E[] getToysByParameters(int price, int age, String gender){
-        E[] selectionList = (E[]) new Object[box.length];
-        getToysBeforePrice(selectionList, price);
-        getToysBeforeAge(selectionList,age);
-        getToysByGender(selectionList,gender);
-        return selectionList;
-    }
-
-    public E[] getToysBeforePrice(E[] list,int price){
-        for (Object elem : box) {
-            if(elem instanceof AbstractToy){
-                AbstractToy toy = (AbstractToy) elem;
-                if(toy.getPrice()<=price){
-                    list[selectionSize++]= (E) toy;
-                }
-            }
-
+        int selectionIndex = 0;
+        E[] selectionList = (E[]) new AbstractToy[box.length];
+        for (E elem : box) {
+            if(elem!=null && elem.getPrice()<=price && elem.getGender().equals(gender) && elem.getAge()<=age) selectionList[selectionIndex++]= elem;
         }
-        return list;
+        return trimToSize(selectionList);
     }
 
-    public E[] getToysByGender(E[] list, String gender){
-        for (Object elem : box) {
-            if(elem instanceof AbstractToy){
-                AbstractToy toy = (AbstractToy) elem;
-                if(toy.getGender().equals(gender)){
-                    list[selectionSize++]= (E) toy;
-                }
+    public E[] getToysArray(){
+        return trimToSize(box);
+    }
+
+    private E[] trimToSize(E[] array) {
+        int valuesIndex = 0;
+        for (E elem:array) {
+            if (elem!=null){
+                valuesIndex++;
+            }else {
+                break;
             }
-
         }
-        return list;
+        return  Arrays.copyOf(array, valuesIndex);
     }
 
-    public E[] getToysBeforeAge(E[] list, int age){
-        for (Object elem : box) {
-            if(elem instanceof AbstractToy){
-                AbstractToy toy = (AbstractToy) elem;
-                if(toy.getAge()<=age){
-                    list[selectionSize++]= (E) toy;
-                }
-            }
-
-        }
-        return list;
-    }
-
-    private void inciseCapacity(){
+    private void increaseCapacity(){
         int oldCapacity = size;
         int newCapacity = oldCapacity + (oldCapacity >> 1);
         box = Arrays.copyOf(box, newCapacity);
     }
-
-
-
-
-
-
 
 }
