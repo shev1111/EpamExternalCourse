@@ -24,9 +24,19 @@ public class ShapeController {
         String criteria = InputData.input().toLowerCase();
         switch (criteria){
             case "area":
-                comparator = new ShapesAreaComparator();break;
+              comparator =  new Comparator<Shape>() {
+                    @Override
+                    public int compare(Shape o1, Shape o2) {
+                        return (int) (o1.calcArea()-o2.calcArea());
+                    }
+                };break;
             case "color":
-                comparator = new ShapesColorComparator();break;
+                comparator = new Comparator<Shape>() {
+                    @Override
+                    public int compare(Shape o1, Shape o2) {
+                        return o1.getColorShape().compareTo(o2.getColorShape());
+                    }
+                };break;
             default: printer.print("Invalid criteria!!!");
         }
 

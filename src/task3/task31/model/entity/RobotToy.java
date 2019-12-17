@@ -22,5 +22,11 @@ public class RobotToy extends AbstractToy {
 
     public void setBodyMaterial(String bodyMaterial) {
         this.bodyMaterial = bodyMaterial;
+
+    }
+
+    @Override
+    public String toString() {
+        return "RobotToy bodyMaterial='" + bodyMaterial +"', "+ super.toString();
     }
 }

@@ -23,4 +23,9 @@ public class Doll extends AbstractToy {
     public void setDollType(String dollType) {
         this.dollType = dollType;
     }
+
+    @Override
+    public String toString() {
+        return "Doll dollType='" + dollType+"', " + super.toString();
+    }
 }

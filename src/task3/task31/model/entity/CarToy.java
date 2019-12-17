@@ -37,4 +37,9 @@ public class CarToy extends AbstractToy {
     public void setCarType(String carType) {
         this.carType = carType;
     }
+
+    @Override
+    public String toString() {
+        return "CarToy carBrand='" + carBrand + "', " + super.toString();
+    }
 }

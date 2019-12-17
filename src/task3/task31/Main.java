@@ -1,12 +1,15 @@
 package task3.task31;
 
+import task3.task31.controller.RoomController;
 import task3.task31.model.entity.AbstractToy;
 import task3.task31.model.entity.CarToy;
 import task3.task31.model.PlayingRoom;
 
 public class Main {
     public static void main(String[] args) {
-        PlayingRoom<AbstractToy> playingRoom = new PlayingRoom<>();
+
+
+        /*PlayingRoom<AbstractToy> playingRoom = new PlayingRoom<>();
         playingRoom.addToy(new CarToy(100, 1,"male","BMW"));
         playingRoom.addToy(new CarToy(99, 2,"male","Mercedez1"));
         playingRoom.addToy(new CarToy(98, 3,"female","Mercedez2"));
@@ -32,7 +35,10 @@ public class Main {
 
             System.out.println(((CarToy)toy).getCarBrand());
         }
-        System.out.println(playingRoom.getGeneralToysPrice());
+        System.out.println(playingRoom.getGeneralToysPrice());*/
+        RoomController controller = new RoomController();
+
+        controller.run();
 
     }
 }

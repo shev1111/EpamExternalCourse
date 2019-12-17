@@ -22,4 +22,8 @@ public class Model {
     public AbstractToy[] selectToysByPriceAgeGender(int price, int age, String gender){
         return playingRoom.getToysByParameters(price,age,gender);
     }
+
+    public PlayingRoom<AbstractToy> getPlayingRoom() {
+        return playingRoom;
+    }
 }

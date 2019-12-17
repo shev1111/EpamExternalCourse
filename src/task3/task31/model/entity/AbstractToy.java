@@ -95,15 +95,9 @@ public abstract class AbstractToy {
 
     @Override
     public String toString() {
-        return "AbstractToy{" +
+        return
                 "price=" + price +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", categoryId=" + categoryId +
-                ", manufacturerId=" + manufacturerId +
-                ", countryId=" + countryId +
-                ", width=" + width +
-                ", height=" + height +
-                '}';
+                ", age='" + age +
+                "', gender='" + gender+"'\n";
     }
 }

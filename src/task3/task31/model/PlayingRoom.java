@@ -20,7 +20,6 @@ public class PlayingRoom <E extends AbstractToy> {
     }
 
     public boolean addToy(E toy){
-        System.out.println(capacity+" "+size);
         if(capacity==size){
             increaseCapacity();
         }
@@ -33,7 +32,7 @@ public class PlayingRoom <E extends AbstractToy> {
     }
 
     public E[] sort(Comparator<? super E> comparator){
-        E[] boxCopy = (E[])Arrays.copyOf(box,box.length);
+        E[] boxCopy = trimToSize(box);
         Arrays.sort(boxCopy,comparator);
         return boxCopy;
     }
