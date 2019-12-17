@@ -2,7 +2,7 @@ package task3.task31;
 
 import task3.task31.model.entity.AbstractToy;
 import task3.task31.model.entity.CarToy;
-import task3.task31.model.entity.PlayingRoom;
+import task3.task31.model.PlayingRoom;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,13 +20,19 @@ public class Main {
         playingRoom.addToy(new CarToy(90, 11,"female","Mercedez10"));
         playingRoom.addToy(new CarToy(89, 12,"male","Mercedez11"));
         playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
+        playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
+        playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
+        playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
+        playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
+        playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
+        playingRoom.addToy(new CarToy(88, 13,"female","Mercedez12"));
 
         AbstractToy[] abstractToys = playingRoom.getToysByParameters(92,12,"female");
-        //System.out.println(playingRoom.getBoxSize());
         for (AbstractToy toy:abstractToys) {
 
             System.out.println(((CarToy)toy).getCarBrand());
         }
+        System.out.println(playingRoom.getGeneralToysPrice());
 
     }
 }

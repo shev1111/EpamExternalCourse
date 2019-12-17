@@ -1,5 +1,6 @@
-package task3.task31.model.entity;
+package task3.task31.model;
 
+import task3.task31.model.entity.AbstractToy;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -8,7 +9,6 @@ public class PlayingRoom <E extends AbstractToy> {
     private E[] box;
     private int size=0;
     private int capacity;
-    private int selectionSize = 0;
 
     public PlayingRoom(int capacity) {
         this.capacity = capacity;
@@ -20,6 +20,7 @@ public class PlayingRoom <E extends AbstractToy> {
     }
 
     public boolean addToy(E toy){
+        System.out.println(capacity+" "+size);
         if(capacity==size){
             increaseCapacity();
         }
@@ -40,7 +41,7 @@ public class PlayingRoom <E extends AbstractToy> {
     public int getGeneralToysPrice(){
         int sum =0;
         for (E elem : box) {
-            sum = sum+elem.getPrice();
+            if(elem!=null)sum = sum+elem.getPrice();
         }
         return sum;
     }
@@ -72,8 +73,8 @@ public class PlayingRoom <E extends AbstractToy> {
 
     private void increaseCapacity(){
         int oldCapacity = size;
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
-        box = Arrays.copyOf(box, newCapacity);
+        capacity = oldCapacity + (oldCapacity >> 1);
+        box = Arrays.copyOf(box, capacity);
     }
 
 }
