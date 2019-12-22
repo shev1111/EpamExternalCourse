@@ -15,6 +15,10 @@ public class BookModel {
         this.books = BooksGenerator.getBooksArray(10);
     }
 
+    public BookModel(Book[] books) {
+        this.books = books;
+    }
+
     public Book[] getBooks() {
         return books;
     }
