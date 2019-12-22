@@ -27,4 +27,13 @@ public class Triangle extends Shape {
         return Math.sqrt(semiPerimeter*(semiPerimeter-a)*(semiPerimeter-b)*(semiPerimeter-c));
 
     }
+
+    public static Triangle parseTriangle(String data){
+        String[] tokens = data.split("[;,]");
+        return new Triangle(
+                tokens[1],
+                Double.parseDouble(tokens[2]),
+                Double.parseDouble(tokens[3]),
+                Double.parseDouble(tokens[4]));
+    }
 }

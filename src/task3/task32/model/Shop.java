@@ -1,8 +1,5 @@
 package task3.task32.model;
 
-import com.sun.deploy.util.ArrayUtil;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -105,9 +102,6 @@ public class Shop {
     public String getShopName() {
         return shopName;
     }
-
-
-
 
     public void setShopName(String shopName) {
         this.shopName = shopName;

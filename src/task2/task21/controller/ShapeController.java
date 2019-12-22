@@ -11,11 +11,21 @@ public class ShapeController {
     private Printer printer = new Printer();
 
     public void run(){
+        createGeometryInstance();
+
         getTotalShapesArea();
 
         getTotalShapesAreaByType();
 
         sortShapesByCriteria();
+    }
+
+    private void createGeometryInstance() {
+        printer.print("Enter geometry pattern -> ");
+        printer.print("(RECTANGLE;color,a,b) -> ");
+        String shapePattern = InputData.input().toLowerCase();
+        printer.print(ShapeParser.parse(shapePattern).toString());
+        printer.print("\n");
     }
 
     private void sortShapesByCriteria() {

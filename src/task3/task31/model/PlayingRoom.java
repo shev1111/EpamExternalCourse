@@ -4,22 +4,22 @@ import task3.task31.model.entity.AbstractToy;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class PlayingRoom <E extends AbstractToy> {
+public class PlayingRoom <T extends AbstractToy> {
     private static final  int DEFAULT_CAPACITY = 10;
-    private E[] box;
+    private T[] box;
     private int size=0;
     private int capacity;
 
     public PlayingRoom(int capacity) {
         this.capacity = capacity;
-        box = (E[]) new AbstractToy[capacity];
+        box = (T[]) new AbstractToy[capacity];
     }
 
     public PlayingRoom() {
         this(DEFAULT_CAPACITY);
     }
 
-    public boolean addToy(E toy){
+    public boolean addToy(T toy){
         if(capacity==size){
             increaseCapacity();
         }
@@ -31,36 +31,36 @@ public class PlayingRoom <E extends AbstractToy> {
         return this.size;
     }
 
-    public E[] sort(Comparator<? super E> comparator){
-        E[] boxCopy = trimToSize(box);
+    public T[] sort(Comparator<? super T> comparator){
+        T[] boxCopy = trimToSize(box);
         Arrays.sort(boxCopy,comparator);
         return boxCopy;
     }
 
     public int getGeneralToysPrice(){
         int sum =0;
-        for (E elem : box) {
+        for (T elem : box) {
             if(elem!=null)sum = sum+elem.getPrice();
         }
         return sum;
     }
 
-    public E[] getToysByParameters(int price, int age, String gender){
+    public T[] getToysByParameters(int price, int age, String gender){
         int selectionIndex = 0;
-        E[] selectionList = (E[]) new AbstractToy[box.length];
-        for (E elem : box) {
+        T[] selectionList = (T[]) new AbstractToy[box.length];
+        for (T elem : box) {
             if(elem!=null && elem.getPrice()<=price && elem.getGender().equals(gender) && elem.getAge()<=age) selectionList[selectionIndex++]= elem;
         }
         return trimToSize(selectionList);
     }
 
-    public E[] getToysArray(){
+    public T[] getToysArray(){
         return trimToSize(box);
     }
 
-    private E[] trimToSize(E[] array) {
+    private T[] trimToSize(T[] array) {
         int valuesIndex = 0;
-        for (E elem:array) {
+        for (T elem:array) {
             if (elem!=null){
                 valuesIndex++;
             }else {

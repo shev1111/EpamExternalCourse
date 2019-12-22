@@ -22,4 +22,12 @@ public class Rectangle extends Shape {
         return width*heigt;
     }
 
+    public static Rectangle parseTriangle(String data){
+        String[] tokens = data.split("[;,]");
+        return new Rectangle(
+                tokens[1],
+                Double.parseDouble(tokens[2]),
+                Double.parseDouble(tokens[3]));
+    }
+
 }
