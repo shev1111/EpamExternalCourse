@@ -25,7 +25,6 @@ public class ExtractTransport {
                     .color(rs.getString("color"))
                     .comfort(ComfortLevel.valueOf(rs.getString("comfort")))
                     .numberOfSeats(rs.getInt("seats"))
-                    .indexNumber(rs.getInt("indexnumber"))
                     .build());
         }
         return waggons;

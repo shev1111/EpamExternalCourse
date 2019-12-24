@@ -30,23 +30,13 @@ public class MysqlDAO extends DAOFactory {
     private Connection getConnection() {
         try {
             return DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/rail",
-                    "root",
-                    "NA$At00r"
-            );
+                    "jdbc:sqlite:src/main/java/projects/project1/database/rail.db");
         } catch (SQLException e) {
             System.err.println(e.getErrorCode());
             System.err.println(e.getSQLState());
             throw new RuntimeException(e);
         }
 
-    }
-
-    public static class TestMysqlDAO {
-        public static void main(String[] args) throws SQLException {
-            MysqlDAO factory = (MysqlDAO) DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-            System.out.println(factory.getConnection().getCatalog());
-        }
     }
 
 }

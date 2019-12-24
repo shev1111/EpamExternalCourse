@@ -52,10 +52,9 @@ public class MysqlTransport implements TransportDAO {
         }
         final String sql = "select idtransport,weight,wheeldiameter," +
                 " name, manufacturedate, color, engine, speed" +
-                " from transport where idtrain = ? and indexnumber = ?";
+                " from transport where indexnumber = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, trainID);
-            statement.setInt(2, order);
             ResultSet set = statement.executeQuery();
             return ExtractTransport.extractLocomotive(set);
         } catch (SQLException e) {
@@ -66,10 +65,7 @@ public class MysqlTransport implements TransportDAO {
 
     @Override
     public List<PassengerWaggon> selectPassengerWaggons(int trainID) {
-        final String sql = "select idtransport,weight,wheeldiameter," +
-                " name, manufacturedate, color, comfort," +
-                " seats, indexnumber" +
-                " from transport where idtrain = ? and clazz = 'PassengerWaggon'";
+        final String sql = "select idtransport, weight, wheeldiameter, name, manufacturedate, color, comfort, seats from transport where islocomotive = ?";
         try (PreparedStatement prepared = connection.prepareStatement(sql)){
             prepared.setInt(1, trainID);
             ResultSet rs = prepared.executeQuery();

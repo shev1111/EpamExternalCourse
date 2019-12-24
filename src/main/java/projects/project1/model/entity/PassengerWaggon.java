@@ -17,24 +17,24 @@ public class PassengerWaggon extends RailTransport {
         passengers = new ArrayList<>();
     }
 
-    public static BuilderSub newPassengerWaggon() {
-        return new PassengerWaggon().new BuilderSub();
+    public static WagonBuilder newPassengerWaggon() {
+        return new PassengerWaggon().new WagonBuilder();
     }
 
-    public class BuilderSub extends RailTransport.BuilderBase<BuilderSub> {
+    public class WagonBuilder extends RailTransport.BuilderBase<WagonBuilder> {
 
-        public BuilderSub numberOfSeats(int numberOfSeats) {
+        public WagonBuilder numberOfSeats(int numberOfSeats) {
             PassengerWaggon.this.numberOfSeats = numberOfSeats;
             return this;
         }
 
-        public BuilderSub comfort(ComfortLevel comfort) {
+        public WagonBuilder comfort(ComfortLevel comfort) {
             PassengerWaggon.this.comfort = comfort;
             return this;
         }
 
         @Override
-        BuilderSub This() {
+        WagonBuilder This() {
             return this;
         }
 
@@ -98,6 +98,7 @@ public class PassengerWaggon extends RailTransport {
 
     @Override
     public String toString() {
-        return getIdentifierName();
+
+        return super.toString()+", identifier ='"+getIdentifierName()+"'";
     }
 }

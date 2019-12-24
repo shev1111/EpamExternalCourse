@@ -1,7 +1,7 @@
 package projects.project1.model.entity.enums;
 
 public enum Engine {
-    TURBOSHAFT(3600), DIESEL(4200), PETROL(4500), ELECTRIC_MOTOR(4300);
+    DIESEL(4200), PETROL(4500), ELECTRIC_MOTOR(4300);
 
     // in kW
     private int power;

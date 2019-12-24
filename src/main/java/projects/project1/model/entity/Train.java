@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class Train {
     private static int quantity;
-    private final int idTrain = ++quantity;
+    private  int idTrain=1;
     private RailTransport head;
     private RailTransport tail;
     private List<RailTransport> waggons;
@@ -13,15 +13,14 @@ public final class Train {
     public Train(RailTransport tr, List<RailTransport> waggons) {
         if(!isTraction(tr)){
             this.head = tr;
-        }else {
-            this.tail = tr;
         }
         this.waggons = waggons;
+
     }
 
     public Train(RailTransport head, RailTransport tail, List<RailTransport> waggons) {
         this(head, waggons);
-        if (isTraction(tail)) this.tail = tail;
+        this.tail = tail;
     }
 
     private boolean isTraction(RailTransport rt) {

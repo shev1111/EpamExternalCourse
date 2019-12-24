@@ -56,6 +56,7 @@ public class MysqlBaggage implements BaggageDAO {
             p.setItems(ExtractBaggage.extractItemList(set));
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 

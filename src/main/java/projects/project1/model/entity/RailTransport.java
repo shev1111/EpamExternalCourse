@@ -105,12 +105,12 @@ public abstract class RailTransport {
     @Override
     public String toString() {
         return "RailTransport{" +
-                "\n transportID=" + transportID +
-                "\n weight=" + weight +
-                "\n wheelDiameter=" + wheelDiameter +
-                "\n name='" + name + '\'' +
-                "\n color='" + color + '\'' +
-                "\n manufactureDate=" + manufactureDate +
+                " transportID=" + transportID +
+                " weight=" + weight +
+                " wheelDiameter=" + wheelDiameter +
+                " name='" + name + '\'' +
+                " color='" + color + '\'' +
+                " manufactureDate=" + manufactureDate +
                 '}';
     }
 }
