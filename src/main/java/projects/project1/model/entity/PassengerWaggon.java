@@ -64,11 +64,8 @@ public class PassengerWaggon extends RailTransport {
         if(!(passengers.size() >= numberOfSeats)) passengers.add(p);
     }
 
-    public static PassengerWaggon isPassenger(RailTransport rt) {
-        if (rt.getClass().getSimpleName().equals(PassengerWaggon.class.getSimpleName())) {
-            return (PassengerWaggon) rt;
-        }
-        return null;
+    public static boolean isPassenger(RailTransport rt) {
+        return rt.getClass().getSimpleName().equals(PassengerWaggon.class.getSimpleName());
     }
 
     @Override
@@ -92,7 +89,7 @@ public class PassengerWaggon extends RailTransport {
             PassengerWaggon pw2 = (PassengerWaggon) o2;
             if (pw1.comfort == pw2.comfort) return 0;
             int dif = pw1.comfort.ordinal() - pw2.comfort.ordinal();
-            return dif / (Math.abs(dif));
+            return dif;
         }
     }
 

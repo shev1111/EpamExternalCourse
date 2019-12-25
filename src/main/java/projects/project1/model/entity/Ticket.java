@@ -8,21 +8,20 @@ public class Ticket {
     private final LocalDateTime dateArrive;
     private final LocalDateTime dateDeparture;
     private final String waggon;
-    private final String train;
     private final int trainID;
     private final int waggonNumber;
     private final int place;
 
     private Ticket(int ticketID, String from, String to,
                    LocalDateTime dateArrive, LocalDateTime dateDeparture,
-                   String waggon, String train, int trainID,
+                   String waggon, int trainID,
                    int waggonNumber, int place) {
         this.ticketID = ticketID;
         this.from = from;
         this.to = to;
         this.dateArrive = dateArrive;
         this.dateDeparture = dateDeparture;
-        this.train = train;
+
         this.waggon = waggon;
         this.trainID = trainID;
         this.waggonNumber = waggonNumber;
@@ -49,9 +48,6 @@ public class Ticket {
         return trainID;
     }
 
-    public String getTrain() {
-        return train;
-    }
 
     public String getWaggon() {
         return waggon;
@@ -134,8 +130,7 @@ public class Ticket {
         public Ticket build() {
             return new Ticket(ticketID,
                     from, to, dateArrive,
-                    dateDeparture, waggon,
-                    train, trainID,
+                    dateDeparture, waggon, trainID,
                     waggonNumber, place
             );
         }
@@ -156,8 +151,7 @@ public class Ticket {
         if (!to.equals(ticket.to)) return false;
         if (!dateArrive.equals(ticket.dateArrive)) return false;
         if (!dateDeparture.equals(ticket.dateDeparture)) return false;
-        if (!waggon.equals(ticket.waggon)) return false;
-        return train.equals(ticket.train);
+        return waggon.equals(ticket.waggon);
     }
 
     @Override
@@ -169,7 +163,6 @@ public class Ticket {
         result = 31 * result + dateArrive.hashCode();
         result = 31 * result + dateDeparture.hashCode();
         result = 31 * result + waggon.hashCode();
-        result = 31 * result + train.hashCode();
         result = 31 * result + trainID;
         result = 31 * result + waggonNumber;
         result = 31 * result + place;

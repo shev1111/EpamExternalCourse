@@ -18,9 +18,9 @@ public class ExtractTicket {
                             .toLocalDateTime())
                     .ticketID(set.getInt("idticket"))
                     .waggon(set.getString("waggon_name"))
-                    .waggonNumber(set.getInt("waggon"))
+                    .waggonNumber(set.getInt("waggon_number"))
                     .trainID(set.getInt("idtrain"))
-                    .place(set.getInt("place"))
+                    .place(set.getInt("place_number"))
                     .build();
         }
         return null;

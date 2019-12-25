@@ -46,14 +46,14 @@ public class MysqlBaggage implements BaggageDAO {
     }
 
     @Override
-    public void selectBaggage(Passenger p) {
-        final String sql = "select iditem, item, weight from item" +
-                " join baggage using (iditem)" +
+    public void selectBaggage(Passenger passenger) {
+        final String sql = "select item.iditem, item, weight from item " +
+                "inner join baggage on baggage.iditem = item.iditem" +
                 " where idpassenger = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, p.getPassengerID());
+            statement.setInt(1, passenger.getPassengerID());
             ResultSet set = statement.executeQuery();
-            p.setItems(ExtractBaggage.extractItemList(set));
+            passenger.setItems(ExtractBaggage.extractItemList(set));
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException();

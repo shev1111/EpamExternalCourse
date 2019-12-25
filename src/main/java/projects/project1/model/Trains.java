@@ -19,13 +19,15 @@ public final class Trains {
     public static DataContainer<Integer, Integer> count(Train train) {
         Integer numberOfPassengers = 0;
         Integer weight = 0;
-        PassengerWaggon pw;
         List<Passenger> passengers;
-        for (RailTransport rt : train.getWaggons()) {
-            if((pw = PassengerWaggon.isPassenger(rt)) != null) {
-                numberOfPassengers += pw.getPassengers().size();
-                passengers = pw.getPassengers();
+        for (RailTransport railTransport : train.getWaggons()) {
+            if(PassengerWaggon.isPassenger(railTransport)) {
+                PassengerWaggon passengerWaggon = (PassengerWaggon) railTransport;
+                numberOfPassengers += passengerWaggon.getPassengers().size();
+                passengers = passengerWaggon.getPassengers();
+
                 for (Passenger p : passengers) {
+
                     weight += p.getBaggageWeight();
                 }
             }
@@ -36,11 +38,11 @@ public final class Trains {
 
     public static int countBaggage(Train train) {
         int weight = 0;
-        PassengerWaggon pw;
         List<Passenger> passengers;
-        for (RailTransport rt : train.getWaggons()) {
-            if((pw = PassengerWaggon.isPassenger(rt)) != null) {
-                passengers = pw.getPassengers();
+        for (RailTransport railTransport : train.getWaggons()) {
+            if(PassengerWaggon.isPassenger(railTransport)) {
+                PassengerWaggon passengerWaggon = (PassengerWaggon) railTransport;
+                passengers = passengerWaggon.getPassengers();
                 for (Passenger p : passengers) {
                     weight += p.getBaggageWeight();
                 }
@@ -55,11 +57,12 @@ public final class Trains {
         if(left < 0 || right < 0 || left > right) {
             throw new IllegalArgumentException();
         }
-        PassengerWaggon pw;
-        for (RailTransport rt : train.getWaggons()) {
-            if((pw = PassengerWaggon.isPassenger(rt)) != null) {
-                if (pw.getCountPassengers() >= left && pw.getCountPassengers() <= right)
-                waggons.add(pw);
+        for (RailTransport railTransport : train.getWaggons()) {
+            if((PassengerWaggon.isPassenger(railTransport))) {
+
+                PassengerWaggon passengerWaggon = (PassengerWaggon) railTransport;
+                if (passengerWaggon.getCountPassengers() >= left && passengerWaggon.getCountPassengers() <= right)
+                waggons.add(passengerWaggon);
             }
         }
         return waggons;

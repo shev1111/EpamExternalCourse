@@ -36,14 +36,15 @@ public final class RailwayStation {
         if(passenger == null || track < 0 || track >= trains.size()) {
             throw new IllegalArgumentException();
         }
-        Train pt = trains.get(track);
+        Train train = trains.get(track);
         // check ticket
         Ticket ticket = passenger.getTicket();
-        if (ticket != null && ticket.getTrainID() == pt.getIdTrain()) {
+        if (ticket != null && ticket.getTrainID() == train.getIdTrain()) {
+
             // success
-            for (RailTransport rt : pt.getWaggons()) {
-                if (rt.getIndexNumber() == ticket.getWaggonNumber()) {
-                    PassengerWaggon pw = (PassengerWaggon) rt;
+            for (RailTransport railTransport : train.getWaggons()) {
+                if (railTransport.getTransportID() == ticket.getWaggonNumber()) {
+                    PassengerWaggon pw = (PassengerWaggon) railTransport;
                     pw.addPassenger(passenger);
                 }
             }

@@ -3,6 +3,10 @@ package projects.project1.view;
 import java.util.Collection;
 
 public class View {
+    public static final String SELECT_LANGUAGE = "Select language \\ Оберіть мову:\n" +
+            "Enter '-eng' or '-ua' \\ Введіть '-eng' чи '-ua'";
+    public static final String TRAIN_SEPARATOR = "==============================";
+
 
     public void print(String msg) {
         System.out.print(msg);
@@ -12,7 +16,7 @@ public class View {
         System.out.println(msg);
     }
 
-    public void printerr(String msg){
+    public void printErr(String msg){
         System.err.println(msg);
     }
 

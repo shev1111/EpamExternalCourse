@@ -11,7 +11,7 @@ public final class Train {
     private List<RailTransport> waggons;
 
     public Train(RailTransport tr, List<RailTransport> waggons) {
-        if(!isTraction(tr)){
+        if(isTraction(tr)){
             this.head = tr;
         }
         this.waggons = waggons;

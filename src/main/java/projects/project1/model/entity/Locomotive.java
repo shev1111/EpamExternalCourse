@@ -63,6 +63,6 @@ public class Locomotive extends RailTransport implements Traction{
 
     @Override
     public String toString() {
-        return "Locomotive" + getIdentifierName();
+        return "Locomotive " + getIdentifierName();
     }
 }

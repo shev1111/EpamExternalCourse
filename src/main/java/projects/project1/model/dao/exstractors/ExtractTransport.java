@@ -32,6 +32,7 @@ public class ExtractTransport {
 
     public static Locomotive extractLocomotive(ResultSet rs) throws SQLException {
         if(rs.next()) {
+
             return Locomotive.newLocomotive()
                     .transportID(rs.getInt("idtransport"))
                     .weight(rs.getInt("weight"))
@@ -42,6 +43,7 @@ public class ExtractTransport {
                     .engine(Engine.valueOf(rs.getString("engine")))
                     .speed(rs.getInt("speed"))
                     .build();
+
         }
         return null;
     }
