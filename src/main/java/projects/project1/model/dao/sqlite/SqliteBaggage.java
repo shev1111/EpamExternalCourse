@@ -1,4 +1,4 @@
-package projects.project1.model.dao.mysql;
+package projects.project1.model.dao.sqlite;
 
 
 
@@ -13,10 +13,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class MysqlBaggage implements BaggageDAO {
+public class SqliteBaggage implements BaggageDAO {
     private Connection connection;
 
-    MysqlBaggage(Connection connection) {
+    SqliteBaggage(Connection connection) {
         this.connection = connection;
     }
 

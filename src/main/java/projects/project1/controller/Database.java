@@ -13,7 +13,7 @@ class Database {
 
     static void init(RailwayStation railway) {
 
-        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         BaggageDAO baggageDAO = factory.baggageDAO();
         PassengerDAO passengerDAO = factory.passengerDAO();
         TicketDAO ticketDAO = factory.ticketDAO();

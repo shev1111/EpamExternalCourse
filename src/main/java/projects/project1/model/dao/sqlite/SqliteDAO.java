@@ -1,30 +1,30 @@
-package projects.project1.model.dao.mysql;
+package projects.project1.model.dao.sqlite;
 
 import projects.project1.model.dao.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MysqlDAO extends DAOFactory {
+public class SqliteDAO extends DAOFactory {
 
     @Override
     public BaggageDAO baggageDAO() {
-        return new MysqlBaggage(getConnection());
+        return new SqliteBaggage(getConnection());
     }
 
     @Override
     public PassengerDAO passengerDAO() {
-        return new MysqlPassenger(getConnection());
+        return new SqlitePassenger(getConnection());
     }
 
     @Override
     public TicketDAO ticketDAO() {
-        return new MysqlTicket(getConnection());
+        return new SqliteTicket(getConnection());
     }
 
     @Override
     public TransportDAO transportDAO() {
-        return new MysqlTransport(getConnection());
+        return new SqliteTransport(getConnection());
     }
 
     private Connection getConnection() {

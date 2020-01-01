@@ -5,7 +5,9 @@ import java.util.Collection;
 public class View {
     public static final String SELECT_LANGUAGE = "Select language \\ Оберіть мову:\n" +
             "Enter '-eng' or '-ua' \\ Введіть '-eng' чи '-ua'";
-    public static final String TRAIN_SEPARATOR = "==============================";
+    public static final String TRAIN_SEPARATOR =    "=============================\n" +
+                                                    " ||"+"||"+"||"+"||"+"||"+"||"+"||"+"||"+"||"+"||"+"||"+"||"+"|| \n"+
+                                                    "=============================";
 
 
     public void print(String msg) {

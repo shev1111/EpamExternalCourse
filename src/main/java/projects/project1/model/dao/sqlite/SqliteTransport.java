@@ -1,4 +1,4 @@
-package projects.project1.model.dao.mysql;
+package projects.project1.model.dao.sqlite;
 
 import projects.project1.model.dao.TransportDAO;
 import projects.project1.model.dao.exstractors.ExtractTransport;
@@ -12,10 +12,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class MysqlTransport implements TransportDAO {
+public class SqliteTransport implements TransportDAO {
     private Connection connection;
 
-    MysqlTransport(Connection connection) {
+    SqliteTransport(Connection connection) {
         this.connection = connection;
     }
 

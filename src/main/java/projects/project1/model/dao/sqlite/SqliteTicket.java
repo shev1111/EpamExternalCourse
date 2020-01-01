@@ -1,4 +1,4 @@
-package projects.project1.model.dao.mysql;
+package projects.project1.model.dao.sqlite;
 
 import projects.project1.model.dao.TicketDAO;
 import projects.project1.model.dao.exstractors.ExtractTicket;
@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class MysqlTicket implements TicketDAO {
+public class SqliteTicket implements TicketDAO {
     private Connection connection;
 
-    MysqlTicket(Connection connection) {
+    SqliteTicket(Connection connection) {
         this.connection = connection;
     }
 

@@ -116,7 +116,6 @@ class MenuController {
         view.println(Multilingual.getResource().getString("commands"));
     }
 
-
     private void show() {
         for (int i = 0; i < railway.numberOfTrains(); i++) {
             view.println(Multilingual.getResource().getString("track") + i + ":");

@@ -1,4 +1,4 @@
-package projects.project1.model.dao.mysql;
+package projects.project1.model.dao.sqlite;
 
 
 
@@ -12,10 +12,10 @@ import java.sql.Statement;
 import java.util.List;
 
 
-public class MysqlPassenger implements PassengerDAO {
+public class SqlitePassenger implements PassengerDAO {
     private Connection connection;
 
-    MysqlPassenger(Connection connection) {
+    SqlitePassenger(Connection connection) {
         this.connection = connection;
     }
 
